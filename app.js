@@ -44,7 +44,7 @@ var app = new Vue({
                 {
                     id: 3,
                     name: 'KatiCup Finals',
-                    description: 'Kati and Gabriel face off in the final game in the winners bracket of the Sarcasm Tournament 2018. Who will win? Probably not the current constituents in running for re-election in this year\'s Congressionals.',
+                    description: 'Kati and Gabriel face off in the final game in the winners bracket of the Sarcasm Tournament 2018. Who will win? Probably not the current constituents planning on running for re-election in this year\'s Congressionals.',
                     date: '5-18-2018'
                 }
               ];
