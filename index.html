@@ -1,0 +1,92 @@
+ <!-- base static html c/p'd from hither -->
+ <!-- https://scotch.io/tutorials/build-an-app-with-vue-js-a-lightweight-alternative-to-angularjs -->
+
+
+<!doctype html>
+<html>
+<head>
+  
+  <meta charset="utf-8">
+  <title>Vue</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+  <!-- navigation bar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a class="navbar-brand"><i class="glyphicon glyphicon-bullhorn"></i> Vue Events Bulletin Board</a>
+    </div>
+  </nav>
+
+  <!-- main body of our application -->
+  <div class="container" id="events">
+    
+    <!-- add an event form -->
+    
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+
+          <h3>Add an Event</h3>
+
+        </div>
+        <!-- your input forms -->
+        <div class="panel-body">
+
+          <div class ="form-group">
+            <!-- this input is bound to the Vue's event data model -->
+            <input class="form-control" placeholder="Event Name" v-model="event.name"/>
+
+          </div>
+
+          <div class ="form-group">
+            <!-- same as above for description -->
+            <input type="textarea" class="form-control" placeholder="Event Description" v-model="event.description"/>
+
+          </div>
+
+          <div class="form-group">
+            <!-- similarly for the date of the event -->
+            <input type="date" class="form-control" placeholder="Event Date" v-model="event.date"/>
+
+          </div>
+
+          <button class = "btn btn-primary" v-on:click="addEvent">Submit</button>
+
+        </div>
+      </div>
+    </div>
+    
+    <!-- show the events -->
+    <div class="col-sm-6">
+      <div class="list-group">
+          <a href="#" class="list-group-item" v-for="(event, index) in events">
+              <h4 class="list-group-item-heading">
+                <span class ="glyphicon glyphicon-bullhorn"></span>
+                {{ event.name }}
+              </h4>
+              <h5>
+                <span class="glyphicon glyphicon-calendar" v-if="event.date"></span>
+                {{ event.date }}
+              </h5>
+              <p class="list-group-item-text" v-if="event.description">
+                {{ event.description }}
+              </p>
+  
+              <button class="btn btn-xs btn-danger" v-on:click="deleteEvent(index)">Delete</button>
+            </a>
+      </div>
+
+    </div>
+    
+  </div>
+  <button-counter></button-counter>
+  <!-- JS -->
+  <script src="node_modules/vue/dist/vue.js"></script>
+  <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
